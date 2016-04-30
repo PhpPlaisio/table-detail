@@ -1,0 +1,32 @@
+{
+  "name": "setbased/abc-table-detail",
+  "description": "ABC-Framework: Detail Table",
+  "keywords": [
+    "ABC",
+    "Framework",
+    "Table",
+    "Overview"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require-dev": {
+    "phing/phing": "2.*",
+    "phpunit/phpunit": ">=4.0.0",
+    "setbased/php-affirm": "*"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "setbased/exception": "1.*",
+    "setbased/abc-html": "1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "SetBased\\Abc\\Table\\": "src/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}
