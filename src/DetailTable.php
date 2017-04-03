@@ -2,6 +2,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 namespace SetBased\Abc\Table;
 
+use SetBased\Abc\Babel;
 use SetBased\Abc\Helper\Html;
 use SetBased\Abc\HtmlElement;
 
@@ -17,7 +18,53 @@ class DetailTable extends HtmlElement
    *
    * @var string
    */
-  protected $row;
+  protected $rows;
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Returns the HTML code for the header of the row.
+   *
+   * @param int|string $header The header text of this table row. We distinguish 2 case:
+   *                           <ul>
+   *                           <li>string: the value is the header text of this table row,
+   *                           <li>int: the value is a word ID to be resolved to a text using Babel.
+   *                           </ul>
+   *
+   * Note: 14 is a word ID and '14' is a header text.
+   *
+   * @return string
+   */
+  protected static function getHtmlRowHeader($header)
+  {
+    $html = '<th>';
+    $html .= (is_int($header)) ? Babel::getWord($header) : $header;
+    $html .= '</th>';
+
+    return $html;
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * @param int|string $header     The header text of this table row. We distinguish 2 case:
+   *                               <ul>
+   *                               <li>string: the value is the header text of this table row,
+   *                               <li>int: the value is a word ID to be resolved to a text using Babel.
+   *                               </ul>
+   * @param array      $attributes The attributes of the data cell. Special characters in the attributes will be
+   *                               replaced with HTML entities.
+   * @param string     $innerText  The inner text of data cell.
+   * @param bool       $isHtml     If true the inner text is a HTML snippet, otherwise special characters in the inner
+   *                               text will be replaced with HTML entities.
+   */
+  public function addRow($header, $attributes = [], $innerText = '', $isHtml = false)
+  {
+    $row = '<tr>';
+    $row .= self::getHtmlRowHeader($header);
+    $row .= Html::generateElement('td', $attributes, $innerText, $isHtml);
+    $row .= '</tr>';
+
+    $this->addRowSnippet($row);
+  }
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -25,9 +72,9 @@ class DetailTable extends HtmlElement
    *
    * @param string $row An HTML snippet with a table row.
    */
-  public function addRow($row)
+  public function addRowSnippet($row)
   {
-    $this->row .= $row;
+    $this->rows .= $row;
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -54,7 +101,7 @@ class DetailTable extends HtmlElement
 
     // Generate HTML code for the table body.
     $ret .= '<tbody>';
-    $ret .= $this->row;
+    $ret .= $this->rows;
     $ret .= '</tbody>';
 
     $ret .= '</table>';

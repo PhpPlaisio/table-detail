@@ -15,22 +15,22 @@ class HyperLinkTableRow
   /**
    * Adds a row with a hyper link to a detail table.
    *
-   * @param DetailTable $table  The (detail) table.
-   * @param string      $header The row header text.
+   * @param DetailTable $table  The detail table.
+   * @param int|string  $header The row header text or word ID.
    * @param string      $value  The hyper link.
    */
   public static function addRow($table, $header, $value)
   {
-    $row = '<tr><th>';
-    $row .= Html::txt2Html($header);
-    $row .= '</th><td>';
     if ($value!==null && $value!==false && $value!=='')
     {
-      $row .= Html::generateElement('a', ['href' => $value], $value);
-    }
-    $row .= '</td></tr>';
+      $a = Html::generateElement('a', ['href' => $value], $value);
 
-    $table->addRow($row);
+      $table->addRow($header, [], $a, true);
+    }
+    else
+    {
+      $table->addRow($header);
+    }
   }
 
   //--------------------------------------------------------------------------------------------------------------------
