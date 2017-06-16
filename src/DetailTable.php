@@ -2,7 +2,7 @@
 //----------------------------------------------------------------------------------------------------------------------
 namespace SetBased\Abc\Table;
 
-use SetBased\Abc\Babel;
+use SetBased\Abc\Babel\Babel;
 use SetBased\Abc\Helper\Html;
 use SetBased\Abc\HtmlElement;
 
@@ -37,7 +37,7 @@ class DetailTable extends HtmlElement
   protected static function getHtmlRowHeader($header)
   {
     $html = '<th>';
-    $html .= (is_int($header)) ? Babel::getWord($header) : $header;
+    $html .= (is_int($header)) ? Babel::getInstance()->getWord($header) : $header;
     $html .= '</th>';
 
     return $html;

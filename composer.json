@@ -15,6 +15,7 @@
   },
   "require": {
     "php": ">=5.4.0",
+    "setbased/abc-babel": "^0.9.1",
     "setbased/exception": "^1.0.0",
     "setbased/abc-html": "^1.0.0"
   },
