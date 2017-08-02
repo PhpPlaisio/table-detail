@@ -19,15 +19,18 @@
 <a href="https://packagist.org/packages/setbased/abc-table-detail"><img src="https://poser.pugx.org/setbased/abc-table-detail/license" alt="License"/></a>
 </td>
 <td>
+<<<<<<< HEAD
 <a href="https://packagist.org/packages/setbased/abc-table-detail"><img src="https://poser.pugx.org/setbased/abc-table-detail/v/stable" alt="Latest Stable Version"/></a><br/>
+=======
+<a href="https://packagist.org/packages/setbased/abc-table-detail"><img src="https://poser.pugx.org/setbased/abc-table-detail/v/stable" alt="Latest Stable Version"/></a>
+>>>>>>> 03474c85f7ff78e5eb2ce231386a05675f559131
 </td>
 <td>
 <a href="https://travis-ci.org/SetBased/php-abc-table-detail"><img src="https://travis-ci.org/SetBased/php-abc-table-detail.svg?branch=master" alt="Build Status"/></a><br/>
 <a href="https://scrutinizer-ci.com/g/SetBased/php-abc-table-detail/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-table-detail/badges/coverage.png?b=master" alt="Code Coverage"/></a>
 </td>
 <td>
-<a href="https://scrutinizer-ci.com/g/SetBased/php-abc-table-detail/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-table-detail/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a><br/>
-<a href="https://travis-ci.org/SetBased/php-abc-table-detail"><img src="http://php7ready.timesplinter.ch/SetBased/php-abc-table-detail/badge.svg" alt="PHP 7 ready"/></a>
+<a href="https://scrutinizer-ci.com/g/SetBased/php-abc-table-detail/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-table-detail/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
 </td>
 </tr>
 </tbody>
