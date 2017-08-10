@@ -19,11 +19,7 @@
 <a href="https://packagist.org/packages/setbased/abc-table-detail"><img src="https://poser.pugx.org/setbased/abc-table-detail/license" alt="License"/></a>
 </td>
 <td>
-<<<<<<< HEAD
-<a href="https://packagist.org/packages/setbased/abc-table-detail"><img src="https://poser.pugx.org/setbased/abc-table-detail/v/stable" alt="Latest Stable Version"/></a><br/>
-=======
 <a href="https://packagist.org/packages/setbased/abc-table-detail"><img src="https://poser.pugx.org/setbased/abc-table-detail/v/stable" alt="Latest Stable Version"/></a>
->>>>>>> 03474c85f7ff78e5eb2ce231386a05675f559131
 </td>
 <td>
 <a href="https://travis-ci.org/SetBased/php-abc-table-detail"><img src="https://travis-ci.org/SetBased/php-abc-table-detail.svg?branch=master" alt="Build Status"/></a><br/>
