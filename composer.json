@@ -2,19 +2,18 @@
   "name": "setbased/abc-table-detail",
   "description": "ABC-Framework: Detail Table",
   "keywords": [
-    "ABC",
-    "Framework",
+    "ABC-Framework",
     "Table",
     "Detail"
   ],
   "type": "library",
   "license": "MIT",
   "require-dev": {
-    "phing/phing": "^2.0",
-    "phpunit/phpunit": "^4.0 || ^5.0"
+    "phing/phing": "^2.0.0",
+    "phpunit/phpunit": "^6.0.0"
   },
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=7.0.0",
     "setbased/abc-babel": "^0.9.1",
     "setbased/exception": "^1.0.0",
     "setbased/abc-html": "^1.0.0"
