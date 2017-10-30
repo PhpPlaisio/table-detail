@@ -2,10 +2,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 namespace SetBased\Abc\Table\TableRow;
 
-use SetBased\Abc\Helper\Html;
 use SetBased\Abc\Table\DetailTable;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Table row in a detail table with a date and time.
  */
