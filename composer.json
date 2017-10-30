@@ -14,7 +14,7 @@
   },
   "require": {
     "php": ">=7.0.0",
-    "setbased/abc-babel": "^0.10.1",
+    "setbased/abc": "^0.10.15",
     "setbased/exception": "^1.0.0",
     "setbased/abc-html": "^1.0.0"
   },
@@ -24,6 +24,6 @@
     }
   },
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin/"
   }
 }

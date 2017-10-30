@@ -2,11 +2,10 @@
 //----------------------------------------------------------------------------------------------------------------------
 namespace SetBased\Abc\Table;
 
-use SetBased\Abc\Babel\Babel;
+use SetBased\Abc\Abc;
 use SetBased\Abc\Helper\Html;
 use SetBased\Abc\HtmlElement;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Class for generating tables with the details of an entity.
  */
@@ -37,7 +36,7 @@ class DetailTable extends HtmlElement
   protected static function getHtmlRowHeader($header)
   {
     $html = '<th>';
-    $html .= (is_int($header)) ? Babel::getInstance()->getWord($header) : $header;
+    $html .= (is_int($header)) ? Abc::$babel->getWord($header) : $header;
     $html .= '</th>';
 
     return $html;
