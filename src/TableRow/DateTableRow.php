@@ -38,7 +38,7 @@ class DateTableRow
    */
   public static function addRow(DetailTable $table, $header, ?string $value, ?string $format = null): void
   {
-    if ($value && $value!=self::$openDate)
+    if ($value!==null && $value!=self::$openDate)
     {
       $date = \DateTime::createFromFormat('Y-m-d', $value);
 
