@@ -1,5 +1,5 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Table;
 
 use SetBased\Abc\Abc;
@@ -33,7 +33,7 @@ class DetailTable extends HtmlElement
    *
    * @return string
    */
-  protected static function getHtmlRowHeader($header)
+  protected static function getHtmlRowHeader($header): string
   {
     $html = '<th>';
     $html .= (is_int($header)) ? Abc::$babel->getWord($header) : $header;
@@ -55,7 +55,7 @@ class DetailTable extends HtmlElement
    * @param bool       $isHtml     If true the inner text is a HTML snippet, otherwise special characters in the inner
    *                               text will be replaced with HTML entities.
    */
-  public function addRow($header, $attributes = [], $innerText = '', $isHtml = false)
+  public function addRow($header, array $attributes = [], string $innerText = '', bool $isHtml = false): void
   {
     $row = '<tr>';
     $row .= self::getHtmlRowHeader($header);
@@ -71,7 +71,7 @@ class DetailTable extends HtmlElement
    *
    * @param string $row An HTML snippet with a table row.
    */
-  public function addRowSnippet($row)
+  public function addRowSnippet(string $row): void
   {
     $this->rows .= $row;
   }
@@ -82,7 +82,7 @@ class DetailTable extends HtmlElement
    *
    * @return string
    */
-  public function getHtmlTable()
+  public function getHtmlTable(): string
   {
     $ret = $this->getHtmlPrefix();
 
@@ -116,7 +116,7 @@ class DetailTable extends HtmlElement
    *
    * @return string
    */
-  protected function getHtmlFooter()
+  protected function getHtmlFooter(): string
   {
     return '';
   }
@@ -127,7 +127,7 @@ class DetailTable extends HtmlElement
    *
    * @return string
    */
-  protected function getHtmlHeader()
+  protected function getHtmlHeader(): string
   {
     return '';
   }
@@ -138,7 +138,7 @@ class DetailTable extends HtmlElement
    *
    * @return string
    */
-  protected function getHtmlPostfix()
+  protected function getHtmlPostfix(): string
   {
     return '';
   }
@@ -149,7 +149,7 @@ class DetailTable extends HtmlElement
    *
    * @return string
    */
-  protected function getHtmlPrefix()
+  protected function getHtmlPrefix(): string
   {
     return '';
   }

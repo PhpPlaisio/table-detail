@@ -1,11 +1,10 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Table\TableRow;
 
 use SetBased\Abc\Helper\Html;
 use SetBased\Abc\Table\DetailTable;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Table row in a detail table with aa email address.
  */
@@ -17,11 +16,11 @@ class EmailTableRow
    *
    * @param DetailTable $table  The detail table.
    * @param int|string  $header The row header text or word ID.
-   * @param string      $value  The email address.
+   * @param string|null $value  The email address.
    */
-  public static function addRow($table, $header, $value)
+  public static function addRow(DetailTable $table, $header, ?string $value): void
   {
-    if ($value!==null && $value!==false && $value!=='')
+    if ($value!==null && $value!=='')
     {
       $a = Html::generateElement('a', ['href' => 'mailto:'.$value], $value);
 

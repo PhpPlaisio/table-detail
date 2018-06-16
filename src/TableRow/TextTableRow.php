@@ -1,10 +1,9 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Table\TableRow;
 
 use SetBased\Abc\Table\DetailTable;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Table row in a detail table with plain text.
  */
@@ -16,11 +15,18 @@ class TextTableRow
    *
    * @param DetailTable $table  The detail table.
    * @param int|string  $header The row header text or word ID.
-   * @param string      $text   The text.
+   * @param string|null $text   The text.
    */
-  public static function addRow($table, $header, $text)
+  public static function addRow(DetailTable $table, $header, ?string $text): void
   {
-    $table->addRow($header, ['class' => 'text'], $text);
+    if ($text!==null && $text!=='')
+    {
+      $table->addRow($header, ['class' => 'text'], $text);
+    }
+    else
+    {
+      $table->addRow($header);
+    }
   }
 
   //--------------------------------------------------------------------------------------------------------------------

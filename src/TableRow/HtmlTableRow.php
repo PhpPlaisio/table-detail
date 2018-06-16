@@ -1,10 +1,9 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Table\TableRow;
 
 use SetBased\Abc\Table\DetailTable;
 
-//--------------------------------------------------------------------------------------------------------------------
 /**
  * Table row in a detail table with any HTML code.
  */
@@ -16,11 +15,18 @@ class HtmlTableRow
    *
    * @param DetailTable $table       The detail table.
    * @param int|string  $header      The row header text or word ID.
-   * @param string      $htmlSnippet The HTML snippet.
+   * @param string|null $htmlSnippet The HTML snippet.
    */
-  public static function addRow($table, $header, $htmlSnippet)
+  public static function addRow(DetailTable $table, $header, ?string $htmlSnippet): void
   {
-    $table->addRow($header, ['class' => 'html'], $htmlSnippet, true);
+    if ($htmlSnippet!==null && $htmlSnippet!=='')
+    {
+      $table->addRow($header, ['class' => 'html'], $htmlSnippet, true);
+    }
+    else
+    {
+      $table->addRow($header);
+    }
   }
 
   //--------------------------------------------------------------------------------------------------------------------

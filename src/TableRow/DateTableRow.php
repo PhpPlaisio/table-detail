@@ -1,10 +1,9 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Table\TableRow;
 
 use SetBased\Abc\Table\DetailTable;
 
-//----------------------------------------------------------------------------------------------------------------------
 /**
  * Table row in a detail table with a date.
  */
@@ -27,16 +26,17 @@ class DateTableRow
   public static $openDate = '9999-12-31';
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * Adds a row with a date value to a detail table.
    *
    * @param DetailTable $table  The detail table.
    * @param int|string  $header The row header text or word ID.
-   * @param string      $value  The date in YYYY-MM-DD format.
+   * @param string|null $value  The date in YYYY-MM-DD format.
    * @param string|null $format The format specifier for formatting the content of this table column. If null the
    *                            default format is used.
    */
-  public static function addRow($table, $header, $value, $format = null)
+  public static function addRow(DetailTable $table, $header, ?string $value, ?string $format = null): void
   {
     if ($value && $value!=self::$openDate)
     {
