@@ -13,9 +13,9 @@ class HtmlTableRow
   /**
    * Adds a row with a HTML snippet to a detail table.
    *
-   * @param DetailTable $table       The detail table.
-   * @param int|string  $header      The row header text or word ID.
-   * @param string|null $htmlSnippet The HTML snippet.
+   * @param DetailTable     $table       The detail table.
+   * @param string|int|null $header      The header text of this table row.
+   * @param string|null     $htmlSnippet The HTML snippet.
    */
   public static function addRow(DetailTable $table, $header, ?string $htmlSnippet): void
   {

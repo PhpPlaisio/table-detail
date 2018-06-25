@@ -13,9 +13,9 @@ class Ipv4TableRow
   /**
    * Adds a row with a IPv4 value to a detail table.
    *
-   * @param DetailTable $table      The detail table.
-   * @param int|string  $header     The row header text or word ID.
-   * @param string|null $ip4Address The IPv4 address.
+   * @param DetailTable     $table      The detail table.
+   * @param string|int|null $header     The header text of this table row.
+   * @param string|null     $ip4Address The IPv4 address.
    */
   public static function addRow(DetailTable $table, $header, ?string $ip4Address): void
   {

@@ -23,11 +23,12 @@ class DetailTable extends HtmlElement
   /**
    * Returns the HTML code for the header of the row.
    *
-   * @param int|string $header The header text of this table row. We distinguish 2 case:
-   *                           <ul>
-   *                           <li>string: the value is the header text of this table row,
-   *                           <li>int: the value is a word ID to be resolved to a text using Babel.
-   *                           </ul>
+   * @param string|int|null $header The header text of this table row. We distinguish 3 cases:
+   *                                <ul>
+   *                                <li>string: the value is the header text of this table row,
+   *                                <li>int: the value is a word ID to be resolved to a text using Babel,
+   *                                <li>null: this table row has an empty header.
+   *                                </ul>
    *
    * Note: 14 is a word ID and '14' is a header text.
    *
@@ -44,18 +45,19 @@ class DetailTable extends HtmlElement
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * @param int|string $header     The header text of this table row. We distinguish 2 case:
-   *                               <ul>
-   *                               <li>string: the value is the header text of this table row,
-   *                               <li>int: the value is a word ID to be resolved to a text using Babel.
-   *                               </ul>
-   * @param array      $attributes The attributes of the data cell. Special characters in the attributes will be
-   *                               replaced with HTML entities.
-   * @param string     $innerText  The inner text of data cell.
-   * @param bool       $isHtml     If true the inner text is a HTML snippet, otherwise special characters in the inner
-   *                               text will be replaced with HTML entities.
+   * @param string|int|null $header     The header text of this table row. We distinguish 3 cases:
+   *                                    <ul>
+   *                                    <li>string: the value is the header text of this table row,
+   *                                    <li>int: the value is a word ID to be resolved to a text using Babel,
+   *                                    <li>null: this table row has an empty header.
+   *                                    </ul>
+   * @param array           $attributes The attributes of the data cell. Special characters in the attributes
+   *                                    will be replaced with HTML entities.
+   * @param string|null     $innerText  The inner text of data table cell.
+   * @param bool            $isHtml     If true the inner text is a HTML snippet, otherwise special characters in
+   *                                    the inner text will be replaced with HTML entities.
    */
-  public function addRow($header, array $attributes = [], string $innerText = '', bool $isHtml = false): void
+  public function addRow($header, array $attributes = [], ?string $innerText = null, bool $isHtml = false): void
   {
     $row = '<tr>';
     $row .= self::getHtmlRowHeader($header);
