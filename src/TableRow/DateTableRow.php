@@ -26,7 +26,6 @@ class DateTableRow
   public static $openDate = '9999-12-31';
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * Adds a row with a date value to a detail table.
    *
