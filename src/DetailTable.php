@@ -13,6 +13,13 @@ class DetailTable extends HtmlElement
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * The class used in the generated HTML code.
+   *
+   * @var string|null
+   */
+  public static $class = 'detail-table';
+
+  /**
    * The HTML snippet with all rows of this table.
    *
    * @var string
@@ -59,7 +66,7 @@ class DetailTable extends HtmlElement
    */
   public function addRow($header, array $attributes = [], ?string $innerText = null, bool $isHtml = false): void
   {
-    $row = '<tr>';
+    $row = Html::generateTag('tr', ['class' => self::$class]);
     $row .= self::getHtmlRowHeader($header);
     $row .= Html::generateElement('td', $attributes, $innerText, $isHtml);
     $row .= '</tr>';
@@ -86,22 +93,26 @@ class DetailTable extends HtmlElement
    */
   public function getHtmlTable(): string
   {
+    $this->addClass(static::$class);
+
     $ret = $this->getHtmlPrefix();
 
     $ret .= Html::generateTag('table', $this->attributes);
 
+    $childAttributes = ['class' => static::$class];
+
     // Generate HTML code for the table header.
-    $ret .= '<thead>';
+    $ret .= Html::generateTag('thead', $childAttributes);
     $ret .= $this->getHtmlHeader();
     $ret .= '</thead>';
 
     // Generate HTML code for the table header.
-    $ret .= '<tfoot>';
+    $ret .= Html::generateTag('tfoot', $childAttributes);
     $ret .= $this->getHtmlFooter();
     $ret .= '</tfoot>';
 
     // Generate HTML code for the table body.
-    $ret .= '<tbody>';
+    $ret .= Html::generateTag('tbody', $childAttributes);
     $ret .= $this->rows;
     $ret .= '</tbody>';
 
