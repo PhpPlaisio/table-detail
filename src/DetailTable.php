@@ -106,15 +106,15 @@ class DetailTable extends HtmlElement
     $ret .= $this->getHtmlHeader();
     $ret .= '</thead>';
 
-    // Generate HTML code for the table header.
-    $ret .= Html::generateTag('tfoot', $childAttributes);
-    $ret .= $this->getHtmlFooter();
-    $ret .= '</tfoot>';
-
     // Generate HTML code for the table body.
     $ret .= Html::generateTag('tbody', $childAttributes);
     $ret .= $this->rows;
     $ret .= '</tbody>';
+
+    // Generate HTML code for the table header.
+    $ret .= Html::generateTag('tfoot', $childAttributes);
+    $ret .= $this->getHtmlFooter();
+    $ret .= '</tfoot>';
 
     $ret .= '</table>';
 
