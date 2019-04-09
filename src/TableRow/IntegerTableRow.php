@@ -21,7 +21,7 @@ class IntegerTableRow
    */
   public static function addRow(DetailTable $table, $header, ?int $value): void
   {
-    if ($value!==null && $value!=='')
+    if ($value!==null)
     {
       $table->addRow($header, ['class' => 'integer'], Cast::toOptString($value));
     }
