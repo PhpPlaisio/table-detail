@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use SetBased\Abc\Table\DetailTable;
-use SetBased\Abc\Table\TableRow\DateTableRow;
+use Plaisio\Table\DetailTable;
+use Plaisio\Table\TableRow\DateTableRow;
 
 class DateTableRowTest extends TestCase
 {

@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use SetBased\Abc\Table\DetailTable;
-use SetBased\Abc\Table\TableRow\EmailTableRow;
+use Plaisio\Table\DetailTable;
+use Plaisio\Table\TableRow\EmailTableRow;
 
 class EmailTableRowTest extends TestCase
 {

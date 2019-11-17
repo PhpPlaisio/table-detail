@@ -1,17 +1,16 @@
 {
-  "name": "setbased/abc-table-detail",
-  "description": "ABC-Framework: Detail Table",
+  "name": "plaisio/table-detail",
+  "description": "PhpPlaisio: Detail Table",
   "keywords": [
-    "ABC-Framework",
-    "Table",
-    "Detail"
+    "PhpPlaisio",
+    "Detail Table"
   ],
   "license": "MIT",
   "require": {
     "php": ">=7.1.0",
-    "setbased/abc": "^0.10.37",
-    "setbased/exception": "^2.0.0",
-    "setbased/abc-html": "^2.0.0"
+    "plaisio/exception": "^1.0.0",
+    "plaisio/helper-html": "^1.0.0",
+    "plaisio/kernel": "^1.0.0"
   },
   "require-dev": {
     "phing/phing": "^2.0.0",
@@ -19,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "SetBased\\Abc\\Table\\": "src/"
+      "Plaisio\\Table\\": "src/"
     }
   },
   "config": {

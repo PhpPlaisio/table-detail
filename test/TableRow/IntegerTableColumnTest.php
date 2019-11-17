@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use SetBased\Abc\Table\DetailTable;
-use SetBased\Abc\Table\TableRow\IntegerTableRow;
+use Plaisio\Table\DetailTable;
+use Plaisio\Table\TableRow\IntegerTableRow;
 
 class IntegerTableRowTest extends TestCase
 {

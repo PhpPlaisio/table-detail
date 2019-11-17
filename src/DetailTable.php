@@ -1,10 +1,11 @@
 <?php
+declare(strict_types=1);
 
-namespace SetBased\Abc\Table;
+namespace Plaisio\Table;
 
-use SetBased\Abc\Abc;
-use SetBased\Abc\Helper\Html;
-use SetBased\Abc\HtmlElement;
+use Plaisio\Helper\Html;
+use Plaisio\Helper\HtmlElement;
+use Plaisio\Kernel\Nub;
 
 /**
  * Class for generating tables with the details of an entity.
@@ -44,7 +45,7 @@ class DetailTable extends HtmlElement
   protected static function getHtmlRowHeader($header): string
   {
     $html = '<th>';
-    $html .= (is_int($header)) ? Abc::$babel->getWord($header) : $header;
+    $html .= (is_int($header)) ? Nub::$babel->getWord($header) : $header;
     $html .= '</th>';
 
     return $html;

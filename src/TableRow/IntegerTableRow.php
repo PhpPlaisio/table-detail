@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Table\TableRow;
+namespace Plaisio\Table\TableRow;
 
-use SetBased\Abc\Helper\Cast;
-use SetBased\Abc\Table\DetailTable;
+use Plaisio\Table\DetailTable;
+use SetBased\Helper\Cast;
 
 /**
  * Table row in a detail table with an integer.

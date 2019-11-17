@@ -1,9 +1,10 @@
 <?php
+declare(strict_types=1);
 
-namespace SetBased\Abc\Table\TableRow;
+namespace Plaisio\Table\TableRow;
 
-use SetBased\Abc\Helper\Html;
-use SetBased\Abc\Table\DetailTable;
+use Plaisio\Helper\Html;
+use Plaisio\Table\DetailTable;
 
 /**
  * Table row in a detail table with aa email address.

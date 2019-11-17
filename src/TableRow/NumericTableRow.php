@@ -1,8 +1,9 @@
 <?php
+declare(strict_types=1);
 
-namespace SetBased\Abc\Table\TableRow;
+namespace Plaisio\Table\TableRow;
 
-use SetBased\Abc\Table\DetailTable;
+use Plaisio\Table\DetailTable;
 
 /**
  * Table row in a detail table with a number.
