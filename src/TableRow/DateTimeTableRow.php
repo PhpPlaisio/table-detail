@@ -30,20 +30,28 @@ class DateTimeTableRow
    */
   public static function addRow(DetailTable $table, $header, ?string $value, ?string $format = null): void
   {
-    $date = \DateTime::createFromFormat('Y-m-d H:i:s', $value);
-
-    if ($date)
+    if ($value!==null)
     {
-      // The $value is a valid datetime.      
-      $table->addRow($header,
-                     ['class'      => 'date',
-                      'data-value' => $date->format('Y-m-d H:i:s')],
-                     $date->format(($format) ? $format : self::$defaultFormat));
+      $date = \DateTime::createFromFormat('Y-m-d H:i:s', $value);
+
+      if ($date)
+      {
+        // The $value is a valid datetime.
+        $table->addRow($header,
+                       ['class'      => 'date',
+                        'data-value' => $date->format('Y-m-d H:i:s')],
+                       $date->format(($format) ? $format : self::$defaultFormat));
+      }
+      else
+      {
+        // The $value is not a valid datetime.
+        $table->addRow($header, [], $value);
+      }
     }
     else
     {
-      // The $value is not a valid datetime.
-      $table->addRow($header, [], $value);
+      // Value is null.
+      $table->addRow($header);
     }
   }
 

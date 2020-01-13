@@ -58,6 +58,7 @@ class DateTableRow
     }
     else
     {
+      // Value is null or open date.
       $table->addRow($header);
     }
   }
