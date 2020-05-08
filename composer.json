@@ -10,7 +10,7 @@
     "php": ">=7.3",
     "plaisio/exception": "^1.1",
     "plaisio/helper-html": "^1.1",
-    "plaisio/kernel": "^1.1"
+    "plaisio/kernel": "^2.0"
   },
   "require-dev": {
     "phing/phing": "^2.0",

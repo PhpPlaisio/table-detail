@@ -45,7 +45,7 @@ class DetailTable extends HtmlElement
   protected static function getHtmlRowHeader($header): string
   {
     $html = '<th>';
-    $html .= (is_int($header)) ? Nub::$babel->getWord($header) : $header;
+    $html .= (is_int($header)) ? Nub::$nub->babel->getWord($header) : $header;
     $html .= '</th>';
 
     return $html;
