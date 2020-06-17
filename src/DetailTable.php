@@ -103,9 +103,11 @@ class DetailTable extends HtmlElement
     $childAttributes = ['class' => static::$class];
 
     // Generate HTML code for the table header.
-    $ret .= Html::generateTag('thead', $childAttributes);
-    $ret .= $this->getHtmlHeader();
-    $ret .= '</thead>';
+    $inner = $this->getHtmlHeader();
+    if ($inner!=='')
+    {
+      $ret .= Html::generateElement('thead', $childAttributes, $inner, true);
+    }
 
     // Generate HTML code for the table body.
     $ret .= Html::generateTag('tbody', $childAttributes);
@@ -113,9 +115,11 @@ class DetailTable extends HtmlElement
     $ret .= '</tbody>';
 
     // Generate HTML code for the table header.
-    $ret .= Html::generateTag('tfoot', $childAttributes);
-    $ret .= $this->getHtmlFooter();
-    $ret .= '</tfoot>';
+    $inner = $this->getHtmlFooter();
+    if ($inner!=='')
+    {
+      $ret .= Html::generateElement('tfoot', $childAttributes, $inner, true);
+    }
 
     $ret .= '</table>';
 
