@@ -7,7 +7,7 @@
   ],
   "license": "MIT",
   "require": {
-    "php": ">=7.3",
+    "php": ">=7.4",
     "plaisio/babel": "^2.0.1",
     "plaisio/exception": "^1.1.0",
     "plaisio/helper-html": "^2.0.0",
