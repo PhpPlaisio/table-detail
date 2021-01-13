@@ -10,9 +10,13 @@ use Plaisio\Kernel\Nub;
 /**
  * Class for generating tables with the details of an entity.
  */
-class DetailTable extends HtmlElement
+class DetailTable
 {
   //--------------------------------------------------------------------------------------------------------------------
+  use HtmlElement;
+
+  //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * The class used in the generated HTML code.
    *
