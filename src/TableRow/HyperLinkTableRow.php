@@ -17,7 +17,7 @@ class HyperLinkTableRow
    *
    * @param DetailTable     $table  The detail table.
    * @param string|int|null $header The header text of this table row.
-   * @param string          $value  The hyper link.
+   * @param string|null     $value  The hyper link.
    */
   public static function addRow(DetailTable $table, $header, ?string $value): void
   {
