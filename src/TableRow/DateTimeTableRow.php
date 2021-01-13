@@ -16,7 +16,7 @@ class DateTimeTableRow
    *
    * @var string
    */
-  public static $defaultFormat = 'd-m-Y H:i:s';
+  public static string $defaultFormat = 'd-m-Y H:i:s';
 
   //--------------------------------------------------------------------------------------------------------------------
   /**

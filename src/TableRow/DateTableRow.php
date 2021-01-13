@@ -16,7 +16,7 @@ class DateTableRow
    *
    * @var string
    */
-  public static $defaultFormat = 'd-m-Y';
+  public static string $defaultFormat = 'd-m-Y';
 
   /**
    * Many (database) systems use a certain value for empty dates or open end dates. Such a value must be shown as an
@@ -24,7 +24,7 @@ class DateTableRow
    *
    * @var string
    */
-  public static $openDate = '9999-12-31';
+  public static string $openDate = '9999-12-31';
 
   //--------------------------------------------------------------------------------------------------------------------
   /**

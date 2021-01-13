@@ -22,14 +22,14 @@ class DetailTable
    *
    * @var string|null
    */
-  public static $class = 'detail-table';
+  public static string $class = 'detail-table';
 
   /**
    * The HTML snippet with all rows of this table.
    *
    * @var string
    */
-  protected $rows;
+  protected string $rows = '';
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
