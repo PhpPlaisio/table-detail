@@ -22,11 +22,11 @@ class TextTableRow
   {
     if ($text!==null && $text!=='')
     {
-      $table->addRow($header, ['class' => 'text'], $text);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('text')], $text);
     }
     else
     {
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 

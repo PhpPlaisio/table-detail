@@ -22,11 +22,11 @@ class Ipv4TableRow
   {
     if ($ip4Address!==null && $ip4Address!=='')
     {
-      $table->addRow($header, ['class' => 'ipv4'], $ip4Address);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('ipv4')], $ip4Address);
     }
     else
     {
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 

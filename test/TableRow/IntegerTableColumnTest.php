@@ -17,8 +17,8 @@ class IntegerTableRowTest extends TestCase
     IntegerTableRow::addRow($table, 'EmptyInteger1', null);
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td></td>', $html);
-    self::assertStringContainsString('<th>EmptyInteger1</th>', $html);
+    self::assertStringContainsString('<td class="dt"></td>', $html);
+    self::assertStringContainsString('<th class="dt">EmptyInteger1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ class IntegerTableRowTest extends TestCase
     IntegerTableRow::addRow($table, 'ValidInteger1', 123456);
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td class="integer">123456</td>', $html);
-    self::assertStringContainsString('<th>ValidInteger1</th>', $html);
+    self::assertStringContainsString('<td class="dt dt-integer">123456</td>', $html);
+    self::assertStringContainsString('<th class="dt">ValidInteger1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

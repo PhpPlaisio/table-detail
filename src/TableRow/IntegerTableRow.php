@@ -23,11 +23,11 @@ class IntegerTableRow
   {
     if ($value!==null)
     {
-      $table->addRow($header, ['class' => 'integer'], Cast::toOptString($value));
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('integer')], Cast::toOptString($value));
     }
     else
     {
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 

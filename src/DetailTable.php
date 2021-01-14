@@ -5,10 +5,13 @@ namespace Plaisio\Table;
 
 use Plaisio\Helper\Html;
 use Plaisio\Helper\HtmlElement;
+use Plaisio\Helper\RenderWalker;
 use Plaisio\Kernel\Nub;
 
 /**
  * Class for generating tables with the details of an entity.
+ *
+ * @property-read RenderWalker $renderWalker The render walker.
  */
 class DetailTable
 {
@@ -16,14 +19,6 @@ class DetailTable
   use HtmlElement;
 
   //--------------------------------------------------------------------------------------------------------------------
-
-  /**
-   * The class used in the generated HTML code.
-   *
-   * @var string|null
-   */
-  public static string $class = 'detail-table';
-
   /**
    * The HTML snippet with all rows of this table.
    *
@@ -32,27 +27,13 @@ class DetailTable
   protected string $rows = '';
 
   //--------------------------------------------------------------------------------------------------------------------
-  /**
-   * Returns the HTML code for the header of the row.
-   *
-   * @param string|int|null $header The header text of this table row. We distinguish 3 cases:
-   *                                <ul>
-   *                                <li>string: the value is the header text of this table row,
-   *                                <li>int: the value is a word ID to be resolved to a text using Babel,
-   *                                <li>null: this table row has an empty header.
-   *                                </ul>
-   *
-   * Note: 14 is a word ID and '14' is a header text.
-   *
-   * @return string
-   */
-  protected static function getHtmlRowHeader($header): string
-  {
-    $html = '<th>';
-    $html .= (is_int($header)) ? Nub::$nub->babel->getWord($header) : $header;
-    $html .= '</th>';
 
-    return $html;
+  /**
+   * DetailTable constructor.
+   */
+  public function __construct()
+  {
+    $this->renderWalker = new RenderWalker('dt');
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -71,8 +52,8 @@ class DetailTable
    */
   public function addRow($header, array $attributes = [], ?string $innerText = null, bool $isHtml = false): void
   {
-    $row = Html::generateTag('tr', ['class' => self::$class]);
-    $row .= self::getHtmlRowHeader($header);
+    $row = Html::generateTag('tr', ['class' => $this->renderWalker->getClasses('body-row')]);
+    $row .= $this->getHtmlRowHeader($header);
     $row .= Html::generateElement('td', $attributes, $innerText, $isHtml);
     $row .= '</tr>';
 
@@ -98,13 +79,13 @@ class DetailTable
    */
   public function getHtmlTable(): string
   {
-    $this->addClass(static::$class);
+    $this->addClasses($this->renderWalker->getClasses());
 
     $ret = $this->getHtmlPrefix();
 
     $ret .= Html::generateTag('table', $this->attributes);
 
-    $childAttributes = ['class' => static::$class];
+    $childAttributes = ['class' => $this->renderWalker->getClasses()];
 
     // Generate HTML code for the table header.
     $inner = $this->getHtmlHeader();
@@ -174,6 +155,30 @@ class DetailTable
   protected function getHtmlPrefix(): string
   {
     return '';
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Returns the HTML code for the header of the row.
+   *
+   * @param string|int|null $header The header text of this table row. We distinguish 3 cases:
+   *                                <ul>
+   *                                <li>string: the value is the header text of this table row,
+   *                                <li>int: the value is a word ID to be resolved to a text using Babel,
+   *                                <li>null: this table row has an empty header.
+   *                                </ul>
+   *
+   * Note: 14 is a word ID and '14' is a header text.
+   *
+   * @return string
+   */
+  protected function getHtmlRowHeader($header): string
+  {
+    $html = Html::generateTag('th', ['class' => $this->renderWalker->getClasses()]);
+    $html .= (is_int($header)) ? Nub::$nub->babel->getWord($header) : $header;
+    $html .= '</th>';
+
+    return $html;
   }
 
   //--------------------------------------------------------------------------------------------------------------------

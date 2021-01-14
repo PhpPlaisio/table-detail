@@ -38,7 +38,7 @@ class DateTableRow
    */
   public static function addRow(DetailTable $table, $header, ?string $value, ?string $format = null): void
   {
-    if ($value!==null && $value!=self::$openDate)
+    if ($value!==null && $value!==self::$openDate)
     {
       $date = \DateTime::createFromFormat('Y-m-d', $value);
 
@@ -46,20 +46,20 @@ class DateTableRow
       {
         // The $value is a valid date.
         $table->addRow($header,
-                       ['class'      => 'date',
+                       ['class'      => $table->renderWalker->getClasses('date'),
                         'data-value' => $date->format('Y-m-d')],
                        $date->format(($format) ? $format : self::$defaultFormat));
       }
       else
       {
         // The $value is not a valid date.
-        $table->addRow($header, [], $value);
+        $table->addRow($header, ['class' => $table->renderWalker->getClasses()], $value);
       }
     }
     else
     {
       // Value is null or open date.
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 

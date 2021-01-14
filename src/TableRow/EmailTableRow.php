@@ -25,11 +25,11 @@ class EmailTableRow
     {
       $a = Html::generateElement('a', ['href' => 'mailto:'.$value], $value);
 
-      $table->addRow($header, ['class' => 'email'], $a, true);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('email')], $a, true);
     }
     else
     {
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 

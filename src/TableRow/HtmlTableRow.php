@@ -22,11 +22,11 @@ class HtmlTableRow
   {
     if ($htmlSnippet!==null && $htmlSnippet!=='')
     {
-      $table->addRow($header, ['class' => 'html'], $htmlSnippet, true);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('html')], $htmlSnippet, true);
     }
     else
     {
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 

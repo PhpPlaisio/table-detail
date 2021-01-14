@@ -25,11 +25,11 @@ class HyperLinkTableRow
     {
       $a = Html::generateElement('a', ['href' => $value], $value);
 
-      $table->addRow($header, [], $a, true);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('link')], $a, true);
     }
     else
     {
-      $table->addRow($header);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
     }
   }
 
