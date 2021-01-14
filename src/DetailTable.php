@@ -52,7 +52,7 @@ class DetailTable
    */
   public function addRow($header, array $attributes = [], ?string $innerText = null, bool $isHtml = false): void
   {
-    $row = Html::generateTag('tr', ['class' => $this->renderWalker->getClasses('body-row')]);
+    $row = Html::generateTag('tr', ['class' => $this->renderWalker->getClasses('row')]);
     $row .= $this->getHtmlRowHeader($header);
     $row .= Html::generateElement('td', $attributes, $innerText, $isHtml);
     $row .= '</tr>';
