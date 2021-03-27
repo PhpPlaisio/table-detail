@@ -18,7 +18,7 @@ class DateTimeTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt"></td>', $html);
-    self::assertStringContainsString('<th class="dt">EmptyDateTime1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">EmptyDateTime1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ class DateTimeTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt">not a datetime</td>', $html);
-    self::assertStringContainsString('<th class="dt">InvalidDateTime1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">InvalidDateTime1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ class DateTimeTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt dt-datetime" data-value="2004-07-13 12:13:14">Tuesday 13th of July 2004 12:13:14 PM</td>', $html);
-    self::assertStringContainsString('<th class="dt">ValidDateTime1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">ValidDateTime1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

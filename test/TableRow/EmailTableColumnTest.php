@@ -18,7 +18,7 @@ class EmailTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt"></td>', $html);
-    self::assertStringContainsString('<th class="dt">EmptyEmail1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">EmptyEmail1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ class EmailTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt dt-email"><a href="mailto:info@setbased.nl">info@setbased.nl</a></td>', $html);
-    self::assertStringContainsString('<th class="dt">ValidEmail1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">ValidEmail1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

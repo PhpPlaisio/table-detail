@@ -27,7 +27,6 @@ class DetailTable
   protected string $rows = '';
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * DetailTable constructor.
    */
@@ -52,12 +51,14 @@ class DetailTable
    */
   public function addRow($header, array $attributes = [], ?string $innerText = null, bool $isHtml = false): void
   {
-    $row = Html::generateTag('tr', ['class' => $this->renderWalker->getClasses('row')]);
-    $row .= $this->getHtmlRowHeader($header);
-    $row .= Html::generateElement('td', $attributes, $innerText, $isHtml);
-    $row .= '</tr>';
+    $struct = ['tag'   => 'tr',
+               'attr'  => ['class' => $this->renderWalker->getClasses('row')],
+               'inner' => [['html' => $this->getHtmlRowHeader($header)],
+                           ['tag'                       => 'td',
+                            'attr'                      => $attributes,
+                            ($isHtml) ? 'html' : 'text' => $innerText]]];
 
-    $this->addRowSnippet($row);
+    $this->addRowSnippet(Html::generateNested($struct));
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -79,23 +80,21 @@ class DetailTable
    */
   public function getHtmlTable(): string
   {
-    $this->addClasses($this->renderWalker->getClasses());
+    $this->addClasses($this->renderWalker->getClasses('table'));
 
     $ret = $this->getHtmlPrefix();
 
     $ret .= Html::generateTag('table', $this->attributes);
 
-    $childAttributes = ['class' => $this->renderWalker->getClasses()];
-
     // Generate HTML code for the table header.
     $inner = $this->getHtmlHeader();
     if ($inner!=='')
     {
-      $ret .= Html::generateElement('thead', $childAttributes, $inner, true);
+      $ret .= Html::generateElement('thead', ['class' => $this->renderWalker->getClasses('head')], $inner, true);
     }
 
     // Generate HTML code for the table body.
-    $ret .= Html::generateTag('tbody', $childAttributes);
+    $ret .= Html::generateTag('tbody', ['class' => $this->renderWalker->getClasses('body')]);
     $ret .= $this->rows;
     $ret .= '</tbody>';
 
@@ -103,7 +102,7 @@ class DetailTable
     $inner = $this->getHtmlFooter();
     if ($inner!=='')
     {
-      $ret .= Html::generateElement('tfoot', $childAttributes, $inner, true);
+      $ret .= Html::generateElement('tfoot', ['class' => $this->renderWalker->getClasses('foot')], $inner, true);
     }
 
     $ret .= '</table>';
@@ -174,11 +173,11 @@ class DetailTable
    */
   protected function getHtmlRowHeader($header): string
   {
-    $html = Html::generateTag('th', ['class' => $this->renderWalker->getClasses()]);
-    $html .= (is_int($header)) ? Nub::$nub->babel->getWord($header) : $header;
-    $html .= '</th>';
+    $struct = ['tag'  => 'th',
+               'attr' => ['class' => $this->renderWalker->getClasses('header')],
+               'text' => (is_int($header)) ? Nub::$nub->babel->getWord($header) : $header];
 
-    return $html;
+    return Html::generateNested($struct);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

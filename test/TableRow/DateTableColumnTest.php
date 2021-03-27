@@ -18,7 +18,7 @@ class DateTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt"></td>', $html);
-    self::assertStringContainsString('<th class="dt">EmptyDate1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">EmptyDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ class DateTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt">not a date</td>', $html);
-    self::assertStringContainsString('<th class="dt">InvalidDate1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">InvalidDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ class DateTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt"></td>', $html);
-    self::assertStringContainsString('<th class="dt">OpenEndDate1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">OpenEndDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ class DateTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt"></td>', $html);
-    self::assertStringContainsString('<th class="dt">OpenEndDate2</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">OpenEndDate2</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ class DateTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt dt-date" data-value="2004-07-13">Tuesday 13th of July 2004</td>', $html);
-    self::assertStringContainsString('<th class="dt">ValidDate1</th>', $html);
+    self::assertStringContainsString('<th class="dt dt-header">ValidDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
