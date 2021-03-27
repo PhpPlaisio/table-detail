@@ -45,13 +45,13 @@ class DateTimeTableRow
       else
       {
         // The $value is not a valid datetime.
-        $table->addRow($header, ['class' => $table->renderWalker->getClasses()], $value);
+        $table->addRow($header, ['class' => $table->renderWalker->getClasses('datetime')], $value);
       }
     }
     else
     {
       // Value is null.
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('datetime')]);
     }
   }
 

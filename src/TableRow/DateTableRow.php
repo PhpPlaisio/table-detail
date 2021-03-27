@@ -53,13 +53,13 @@ class DateTableRow
       else
       {
         // The $value is not a valid date.
-        $table->addRow($header, ['class' => $table->renderWalker->getClasses()], $value);
+        $table->addRow($header, ['class' => $table->renderWalker->getClasses('date')], $value);
       }
     }
     else
     {
       // Value is null or open date.
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('date')]);
     }
   }
 

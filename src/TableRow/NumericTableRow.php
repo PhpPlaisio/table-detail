@@ -27,7 +27,7 @@ class NumericTableRow
     }
     else
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('number')]);
     }
   }
 

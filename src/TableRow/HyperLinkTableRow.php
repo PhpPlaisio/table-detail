@@ -23,13 +23,14 @@ class HyperLinkTableRow
   {
     if ($value!==null && $value!=='')
     {
-      $a = Html::generateElement('a', ['href' => $value], $value);
-
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses('link')], $a, true);
+      $table->addRow($header,
+                     ['class' => $table->renderWalker->getClasses('link')],
+                     Html::generateElement('a', ['href' => $value], $value),
+                     true);
     }
     else
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses()]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses('link')]);
     }
   }
 
