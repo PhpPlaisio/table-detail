@@ -20,7 +20,7 @@ class TextTableRow
    */
   public static function addRow(DetailTable $table, $header, ?string $text): void
   {
-    $table->addRow($header, ['class' => $table->renderWalker->getClasses('text')], $text);
+    $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'text'])], $text);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

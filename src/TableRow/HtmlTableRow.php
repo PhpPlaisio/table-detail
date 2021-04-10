@@ -20,7 +20,7 @@ class HtmlTableRow
    */
   public static function addRow(DetailTable $table, $header, ?string $htmlSnippet): void
   {
-    $table->addRow($header, ['class' => $table->renderWalker->getClasses('html')], $htmlSnippet, true);
+    $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'html'])], $htmlSnippet, true);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

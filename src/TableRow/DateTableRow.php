@@ -46,20 +46,20 @@ class DateTableRow
       {
         // The $value is a valid date.
         $table->addRow($header,
-                       ['class'      => $table->renderWalker->getClasses('date'),
+                       ['class'      => $table->renderWalker->getClasses(['cell', 'date']),
                         'data-value' => $date->format('Y-m-d')],
                        $date->format(($format) ? $format : self::$defaultFormat));
       }
       else
       {
         // The $value is not a valid date.
-        $table->addRow($header, ['class' => $table->renderWalker->getClasses('date')], $value);
+        $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'date'])], $value);
       }
     }
     else
     {
       // Value is null or open date.
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses('date')]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'date'])]);
     }
   }
 

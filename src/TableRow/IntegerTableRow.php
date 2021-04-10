@@ -21,7 +21,9 @@ class IntegerTableRow
    */
   public static function addRow(DetailTable $table, $header, ?int $value): void
   {
-    $table->addRow($header, ['class' => $table->renderWalker->getClasses('integer')], Cast::toOptString($value));
+    $table->addRow($header,
+                   ['class' => $table->renderWalker->getClasses(['cell', 'integer'])],
+                   Cast::toOptString($value));
   }
 
   //--------------------------------------------------------------------------------------------------------------------

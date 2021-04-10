@@ -20,7 +20,7 @@ class Ipv4TableRow
    */
   public static function addRow(DetailTable $table, $header, ?string $ip4Address): void
   {
-    $table->addRow($header, ['class' => $table->renderWalker->getClasses('ipv4')], $ip4Address);
+    $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'ipv4'])], $ip4Address);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

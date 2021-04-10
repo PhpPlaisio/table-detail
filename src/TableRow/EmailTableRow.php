@@ -24,13 +24,13 @@ class EmailTableRow
     if ($value!==null && $value!=='')
     {
       $table->addRow($header,
-                     ['class' => $table->renderWalker->getClasses('email')],
+                     ['class' => $table->renderWalker->getClasses(['cell', 'email'])],
                      Html::generateElement('a', ['href' => 'mailto:'.$value], $value),
                      true);
     }
     else
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses('email')]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'email'])]);
     }
   }
 

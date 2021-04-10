@@ -23,11 +23,13 @@ class NumericTableRow
   {
     if ($value!==null && $value!=='')
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses('number')], sprintf($format, $value));
+      $table->addRow($header,
+                     ['class' => $table->renderWalker->getClasses(['cell', 'number'])],
+                     sprintf($format, $value));
     }
     else
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses('number')]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'number'])]);
     }
   }
 

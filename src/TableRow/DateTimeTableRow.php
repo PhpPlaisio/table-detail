@@ -38,20 +38,20 @@ class DateTimeTableRow
       {
         // The $value is a valid datetime.
         $table->addRow($header,
-                       ['class'      => $table->renderWalker->getClasses('datetime'),
+                       ['class'      => $table->renderWalker->getClasses(['cell', 'datetime']),
                         'data-value' => $date->format('Y-m-d H:i:s')],
                        $date->format(($format) ? $format : self::$defaultFormat));
       }
       else
       {
         // The $value is not a valid datetime.
-        $table->addRow($header, ['class' => $table->renderWalker->getClasses('datetime')], $value);
+        $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'datetime'])], $value);
       }
     }
     else
     {
       // Value is null.
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses('datetime')]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'datetime'])]);
     }
   }
 
