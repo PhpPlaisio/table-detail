@@ -25,7 +25,10 @@ class EmailTableRow
     {
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'email'])],
-                     Html::generateElement('a', ['href' => 'mailto:'.$value], $value),
+                     Html::generateElement('a',
+                                           ['class' => $table->renderWalker->getClasses(['link', 'mailto']),
+                                            'href'  => 'mailto:'.$value],
+                                           $value),
                      true);
     }
     else

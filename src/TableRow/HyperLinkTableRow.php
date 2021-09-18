@@ -25,7 +25,10 @@ class HyperLinkTableRow
     {
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'link'])],
-                     Html::generateElement('a', ['href' => $value], $value),
+                     Html::generateElement('a',
+                                           ['class' => $table->renderWalker->getClasses('link'),
+                                            'href'  => $value],
+                                           $value),
                      true);
     }
     else
