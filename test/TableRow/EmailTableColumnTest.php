@@ -32,7 +32,7 @@ class EmailTableRowTest extends TestCase
     $html = $table->getHtmlTable();
 
     self::assertStringContainsString('<td class="dt dt-cell dt-email">'.
-                                     '<a class="link mailto" href="mailto:info@setbased.nl">info@setbased.nl</a>'.
+                                     '<a class="link link-mailto" href="mailto:info@setbased.nl">info@setbased.nl</a>'.
                                      '</td>', $html);
     self::assertStringContainsString('<th class="dt dt-header">ValidEmail1</th>', $html);
   }

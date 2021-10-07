@@ -26,7 +26,7 @@ class EmailTableRow
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'email'])],
                      Html::generateElement('a',
-                                           ['class' => ['link', 'mailto'],
+                                           ['class' => ['link', 'link-mailto'],
                                             'href'  => 'mailto:'.$value],
                                            $value),
                      true);
