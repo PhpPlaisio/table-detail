@@ -10,13 +10,13 @@
     "php": ">=7.4",
     "plaisio/babel": "^2.0.1",
     "plaisio/exception": "^1.1.0",
-    "plaisio/helper-html": "^2.1.0",
+    "plaisio/helper-html": "^3.0.0",
     "plaisio/kernel": "^3.1.1"
   },
   "require-dev": {
-    "phing/phing": "^2.16.4",
-    "phpunit/phpunit": "^9.5.4",
-    "plaisio/console": "^2.4.8"
+    "phing/phing": "^2.17.0",
+    "phpunit/phpunit": "^9.5.10",
+    "plaisio/console": "^2.4.9"
   },
   "autoload": {
     "psr-4": {

@@ -17,8 +17,8 @@ class DateTableRowTest extends TestCase
     DateTableRow::addRow($table, 'EmptyDate1', '');
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td class="dt dt-cell dt-date"></td>', $html);
-    self::assertStringContainsString('<th class="dt dt-header">EmptyDate1</th>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-date"></td>', $html);
+    self::assertStringContainsString('<th class="dt-header">EmptyDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ class DateTableRowTest extends TestCase
     DateTableRow::addRow($table, 'InvalidDate1', 'not a date');
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td class="dt dt-cell dt-date">not a date</td>', $html);
-    self::assertStringContainsString('<th class="dt dt-header">InvalidDate1</th>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-date">not a date</td>', $html);
+    self::assertStringContainsString('<th class="dt-header">InvalidDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -45,8 +45,8 @@ class DateTableRowTest extends TestCase
     DateTableRow::addRow($table, 'OpenEndDate1', '9999-12-31');
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td class="dt dt-cell dt-date"></td>', $html);
-    self::assertStringContainsString('<th class="dt dt-header">OpenEndDate1</th>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-date"></td>', $html);
+    self::assertStringContainsString('<th class="dt-header">OpenEndDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -61,8 +61,8 @@ class DateTableRowTest extends TestCase
     DateTableRow::addRow($table, 'OpenEndDate2', '8888-88-88');
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td class="dt dt-cell dt-date"></td>', $html);
-    self::assertStringContainsString('<th class="dt dt-header">OpenEndDate2</th>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-date"></td>', $html);
+    self::assertStringContainsString('<th class="dt-header">OpenEndDate2</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -75,8 +75,8 @@ class DateTableRowTest extends TestCase
     DateTableRow::addRow($table, 'ValidDate1', '2004-07-13', 'l jS \of F Y');
     $html = $table->getHtmlTable();
 
-    self::assertStringContainsString('<td class="dt dt-cell dt-date" data-value="2004-07-13">Tuesday 13th of July 2004</td>', $html);
-    self::assertStringContainsString('<th class="dt dt-header">ValidDate1</th>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-date" data-value="2004-07-13">Tuesday 13th of July 2004</td>', $html);
+    self::assertStringContainsString('<th class="dt-header">ValidDate1</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
