@@ -10,17 +10,22 @@
     "php": ">=7.4",
     "plaisio/babel": "^2.0.1",
     "plaisio/exception": "^1.1.0",
-    "plaisio/helper-html": "^3.0.0",
+    "plaisio/helper-html": "^4.0.0",
     "plaisio/kernel": "^3.1.1"
   },
   "require-dev": {
     "phing/phing": "^2.17.0",
-    "phpunit/phpunit": "^9.5.10",
-    "plaisio/console": "^2.4.9"
+    "phpunit/phpunit": "^9.5.11",
+    "plaisio/console": "^2.5.0."
   },
   "autoload": {
     "psr-4": {
       "Plaisio\\Table\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Plaisio\\Table\\Test\\": "test/"
     }
   },
   "config": {

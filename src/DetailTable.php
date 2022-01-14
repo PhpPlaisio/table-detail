@@ -53,12 +53,12 @@ class DetailTable
   {
     $struct = ['tag'   => 'tr',
                'attr'  => ['class' => $this->renderWalker->getClasses('row')],
-               'inner' => [['html' => $this->getHtmlRowHeader($header)],
+               'inner' => [['html' => $this->htmlRowHeader($header)],
                            ['tag'                       => 'td',
                             'attr'                      => $attributes,
                             ($isHtml) ? 'html' : 'text' => $innerText]]];
 
-    $this->addRowSnippet(Html::generateNested($struct));
+    $this->addRowSnippet(Html::htmlNested($struct));
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -78,38 +78,38 @@ class DetailTable
    *
    * @return string
    */
-  public function getHtmlTable(): string
+  public function htmlTable(): string
   {
+    $inner = [];
+
+    $header = $this->htmlHeader();
+    if ($header!=='')
+    {
+      $inner[] = ['tag'  => 'thead',
+                  'attr' => ['class' => $this->renderWalker->getClasses('head')],
+                  'html' => $header];
+    }
+
+    $inner[] = ['tag'  => 'tbody',
+                'attr' => ['class' => $this->renderWalker->getClasses('body')],
+                'html' => $this->rows];
+
+    $footer = $this->htmlFooter();
+    if ($footer!=='')
+    {
+      $inner[] = ['tag'  => 'tfoot',
+                  'attr' => ['class' => $this->renderWalker->getClasses('foot')],
+                  'html' => $header];
+    }
+
     $this->addClasses($this->renderWalker->getClasses('table'));
+    $struct = [['html' => $this->htmlPrefix()],
+               ['tag'   => 'table',
+                'attr'  => $this->attributes,
+                'inner' => $inner,
+                ['html' => $this->htmlPostfix()]]];
 
-    $ret = $this->getHtmlPrefix();
-
-    $ret .= Html::generateTag('table', $this->attributes);
-
-    // Generate HTML code for the table header.
-    $inner = $this->getHtmlHeader();
-    if ($inner!=='')
-    {
-      $ret .= Html::generateElement('thead', ['class' => $this->renderWalker->getClasses('head')], $inner, true);
-    }
-
-    // Generate HTML code for the table body.
-    $ret .= Html::generateTag('tbody', ['class' => $this->renderWalker->getClasses('body')]);
-    $ret .= $this->rows;
-    $ret .= '</tbody>';
-
-    // Generate HTML code for the table header.
-    $inner = $this->getHtmlFooter();
-    if ($inner!=='')
-    {
-      $ret .= Html::generateElement('tfoot', ['class' => $this->renderWalker->getClasses('foot')], $inner, true);
-    }
-
-    $ret .= '</table>';
-
-    $ret .= $this->getHtmlPostfix();
-
-    return $ret;
+    return Html::htmlNested($struct);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ class DetailTable
    *
    * @return string
    */
-  protected function getHtmlFooter(): string
+  protected function htmlFooter(): string
   {
     return '';
   }
@@ -129,7 +129,7 @@ class DetailTable
    *
    * @return string
    */
-  protected function getHtmlHeader(): string
+  protected function htmlHeader(): string
   {
     return '';
   }
@@ -140,7 +140,7 @@ class DetailTable
    *
    * @return string
    */
-  protected function getHtmlPostfix(): string
+  protected function htmlPostfix(): string
   {
     return '';
   }
@@ -151,7 +151,7 @@ class DetailTable
    *
    * @return string
    */
-  protected function getHtmlPrefix(): string
+  protected function htmlPrefix(): string
   {
     return '';
   }
@@ -171,13 +171,13 @@ class DetailTable
    *
    * @return string
    */
-  protected function getHtmlRowHeader($header): string
+  protected function htmlRowHeader($header): string
   {
     $struct = ['tag'  => 'th',
                'attr' => ['class' => $this->renderWalker->getClasses('header')],
                'text' => (is_int($header)) ? Nub::$nub->babel->getWord($header) : $header];
 
-    return Html::generateNested($struct);
+    return Html::htmlNested($struct);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

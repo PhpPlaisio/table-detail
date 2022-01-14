@@ -13,7 +13,7 @@ class EmailTableRow
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Adds a row with a email address to a detail table.
+   * Adds a row with an email address to a detail table.
    *
    * @param DetailTable     $table  The detail table.
    * @param string|int|null $header The header text of this table row.
@@ -25,10 +25,10 @@ class EmailTableRow
     {
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'email'])],
-                     Html::generateElement('a',
-                                           ['class' => ['link', 'link-mailto'],
-                                            'href'  => 'mailto:'.$value],
-                                           $value),
+                     Html::htmlNested(['tag'  => 'a',
+                                       'attr' => ['class' => ['link', 'link-mailto'],
+                                                  'href'  => 'mailto:'.$value],
+                                       'text' => $value]),
                      true);
     }
     else

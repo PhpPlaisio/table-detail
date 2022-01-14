@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+namespace Plaisio\Table\Test\TableRow;
+
 use PHPUnit\Framework\TestCase;
 use Plaisio\Table\DetailTable;
 use Plaisio\Table\TableRow\EmailTableRow;
@@ -15,7 +17,7 @@ class EmailTableRowTest extends TestCase
   {
     $table = new DetailTable();
     EmailTableRow::addRow($table, 'EmptyEmail1', '');
-    $html = $table->getHtmlTable();
+    $html = $table->htmlTable();
 
     self::assertStringContainsString('<td class="dt-cell dt-email"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyEmail1</th>', $html);
@@ -29,7 +31,7 @@ class EmailTableRowTest extends TestCase
   {
     $table = new DetailTable();
     EmailTableRow::addRow($table, 'ValidEmail1', 'info@setbased.nl');
-    $html = $table->getHtmlTable();
+    $html = $table->htmlTable();
 
     self::assertStringContainsString('<td class="dt-cell dt-email">'.
                                      '<a class="link link-mailto" href="mailto:info@setbased.nl">info@setbased.nl</a>'.
