@@ -106,8 +106,8 @@ class DetailTable
     $struct = [['html' => $this->htmlPrefix()],
                ['tag'   => 'table',
                 'attr'  => $this->attributes,
-                'inner' => $inner,
-                ['html' => $this->htmlPostfix()]]];
+                'inner' => $inner],
+               ['html' => $this->htmlPostfix()]];
 
     return Html::htmlNested($struct);
   }
