@@ -37,7 +37,7 @@ class DetailTable
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * @param string|int|null $header     The header text of this table row. We distinguish 3 cases:
+   * @param int|string|null $header     The header text of this table row. We distinguish 3 cases:
    *                                    <ul>
    *                                    <li>string: the value is the header text of this table row,
    *                                    <li>int: the value is a word ID to be resolved to a text using Babel,
@@ -46,10 +46,12 @@ class DetailTable
    * @param array           $attributes The attributes of the data cell. Special characters in the attributes
    *                                    will be replaced with HTML entities.
    * @param string|null     $innerText  The inner text of data table cell.
-   * @param bool            $isHtml     If true the inner text is a HTML snippet, otherwise special characters in
-   *                                    the inner text will be replaced with HTML entities.
+   * @param bool            $isHtml     Whether the inner text is an HTML snippet or plain text.
    */
-  public function addRow($header, array $attributes = [], ?string $innerText = null, bool $isHtml = false): void
+  public function addRow(int|string|null $header,
+                         array           $attributes = [],
+                         ?string         $innerText = null,
+                         bool            $isHtml = false): void
   {
     $struct = ['tag'   => 'tr',
                'attr'  => ['class' => $this->renderWalker->getClasses('row')],

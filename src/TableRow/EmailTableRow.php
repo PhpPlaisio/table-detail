@@ -16,10 +16,10 @@ class EmailTableRow
    * Adds a row with an email address to a detail table.
    *
    * @param DetailTable     $table  The detail table.
-   * @param string|int|null $header The header text of this table row.
+   * @param int|string|null $header The header text of this table row.
    * @param string|null     $value  The email address.
    */
-  public static function addRow(DetailTable $table, $header, ?string $value): void
+  public static function addRow(DetailTable $table, int|string|null $header, ?string $value): void
   {
     if ($value!==null && $value!=='')
     {

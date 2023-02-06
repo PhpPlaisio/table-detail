@@ -1,5 +1,11 @@
 <?php
-error_reporting(E_ALL);
+declare(strict_types=1);
+
+use SetBased\ErrorHandler\ErrorHandler;
+
 date_default_timezone_set('Europe/Amsterdam');
 
-require __DIR__.'/../vendor/autoload.php';
+require_once(__DIR__.'/../vendor/autoload.php');
+
+$errorHandler = new ErrorHandler();
+$errorHandler->registerErrorHandler();

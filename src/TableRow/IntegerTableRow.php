@@ -16,10 +16,10 @@ class IntegerTableRow
    * Adds a row with an integer value to a detail table.
    *
    * @param DetailTable     $table  The detail table.
-   * @param string|int|null $header The header text of this table row.
+   * @param int|string|null $header The header text of this table row.
    * @param int|null        $value  The integer value.
    */
-  public static function addRow(DetailTable $table, $header, ?int $value): void
+  public static function addRow(DetailTable $table, int|string|null $header, ?int $value): void
   {
     $table->addRow($header,
                    ['class' => $table->renderWalker->getClasses(['cell', 'integer'])],

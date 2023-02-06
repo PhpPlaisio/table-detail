@@ -27,16 +27,20 @@ class DateTableRow
   public static string $openDate = '9999-12-31';
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * Adds a row with a date value to a detail table.
    *
    * @param DetailTable     $table  The detail table.
-   * @param string|int|null $header The header text of this table row.
+   * @param int|string|null $header The header text of this table row.
    * @param string|null     $value  The date in YYYY-MM-DD format.
    * @param string|null     $format The format specifier for formatting the content of this table column. If null
    *                                the default format is used.
    */
-  public static function addRow(DetailTable $table, $header, ?string $value, ?string $format = null): void
+  public static function addRow(DetailTable     $table,
+                                int|string|null $header,
+                                ?string         $value,
+                                ?string         $format = null): void
   {
     if ($value!==null && $value!==self::$openDate)
     {
