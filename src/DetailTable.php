@@ -13,12 +13,14 @@ use Plaisio\Kernel\Nub;
  *
  * @property-read RenderWalker $renderWalker The render walker.
  */
+#[\AllowDynamicProperties]
 class DetailTable
 {
   //--------------------------------------------------------------------------------------------------------------------
   use HtmlElement;
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * The HTML snippet with all rows of this table.
    *
@@ -27,6 +29,7 @@ class DetailTable
   protected string $rows = '';
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * DetailTable constructor.
    */
@@ -49,9 +52,9 @@ class DetailTable
    * @param bool            $isHtml     Whether the inner text is an HTML snippet or plain text.
    */
   public function addRow(int|string|null $header,
-                         array           $attributes = [],
-                         ?string         $innerText = null,
-                         bool            $isHtml = false): void
+                         array   $attributes = [],
+                         ?string $innerText = null,
+                         bool    $isHtml = false): void
   {
     $struct = ['tag'   => 'tr',
                'attr'  => ['class' => $this->renderWalker->getClasses('row')],
