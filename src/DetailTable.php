@@ -20,7 +20,6 @@ class DetailTable
   use HtmlElement;
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * The HTML snippet with all rows of this table.
    *
@@ -29,7 +28,6 @@ class DetailTable
   protected string $rows = '';
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * DetailTable constructor.
    */

@@ -19,7 +19,6 @@ class DateTimeTableRow
   public static string $defaultFormat = 'd-m-Y H:i:s';
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * Adds a row with a datetime value to a detail table.
    *
