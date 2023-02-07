@@ -8,7 +8,7 @@ use Plaisio\Table\DetailTable;
 /**
  * Table row in a detail table with a number.
  */
-class NumericTableRow
+class NumberTableRow
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -21,15 +21,15 @@ class NumericTableRow
    */
   public static function addRow(DetailTable $table, int|string|null $header, ?string $value, string $format): void
   {
-    if ($value!==null && $value!=='')
+    if ($value===null || $value==='')
+    {
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'number'])]);
+    }
+    else
     {
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'number'])],
                      sprintf($format, $value));
-    }
-    else
-    {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'number'])]);
     }
   }
 
