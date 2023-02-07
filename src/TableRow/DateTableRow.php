@@ -42,10 +42,14 @@ class DateTableRow
                                 ?string         $value,
                                 ?string         $format = null): void
   {
-    if ($value!==null && $value!==self::$openDate)
+    if ($value===null || $value==='' || $value===self::$openDate)
+    {
+      // Value is null or open date.
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'date'])]);
+    }
+    else
     {
       $date = \DateTime::createFromFormat('Y-m-d', $value);
-
       if ($date)
       {
         // The $value is a valid date.
@@ -59,11 +63,6 @@ class DateTableRow
         // The $value is not a valid date.
         $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'date'])], $value);
       }
-    }
-    else
-    {
-      // Value is null or open date.
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'date'])]);
     }
   }
 

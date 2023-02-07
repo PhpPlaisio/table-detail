@@ -16,11 +16,25 @@ class DateTimeTableRowTest extends TestCase
   public function testEmptyDateTime1()
   {
     $table = new DetailTable();
-    DateTimeTableRow::addRow($table, 'EmptyDateTime1', '');
+    DateTimeTableRow::addRow($table, 'EmptyDateTime1', null);
     $html = $table->htmlTable();
 
     self::assertStringContainsString('<td class="dt-cell dt-datetime"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyDateTime1</th>', $html);
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test with an empty datetime.
+   */
+  public function testEmptyDateTime2()
+  {
+    $table = new DetailTable();
+    DateTimeTableRow::addRow($table, 'EmptyDateTime2', '');
+    $html = $table->htmlTable();
+
+    self::assertStringContainsString('<td class="dt-cell dt-datetime"></td>', $html);
+    self::assertStringContainsString('<th class="dt-header">EmptyDateTime2</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

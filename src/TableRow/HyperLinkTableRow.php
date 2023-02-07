@@ -21,7 +21,11 @@ class HyperLinkTableRow
    */
   public static function addRow(DetailTable $table, int|string|null $header, ?string $value): void
   {
-    if ($value!==null && $value!=='')
+    if ($value===null || $value==='')
+    {
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'link'])]);
+    }
+    else
     {
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'link'])],
@@ -30,10 +34,6 @@ class HyperLinkTableRow
                                                   'href'  => $value],
                                        'text' => $value]),
                      true);
-    }
-    else
-    {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'link'])]);
     }
   }
 

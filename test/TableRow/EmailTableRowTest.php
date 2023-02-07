@@ -16,11 +16,25 @@ class EmailTableRowTest extends TestCase
   public function testEmptyEmail1()
   {
     $table = new DetailTable();
-    EmailTableRow::addRow($table, 'EmptyEmail1', '');
+    EmailTableRow::addRow($table, 'EmptyEmail1', null);
     $html = $table->htmlTable();
 
     self::assertStringContainsString('<td class="dt-cell dt-email"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyEmail1</th>', $html);
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test with an empty datetime.
+   */
+  public function testEmptyEmail2()
+  {
+    $table = new DetailTable();
+    EmailTableRow::addRow($table, 'EmptyEmail2', '');
+    $html = $table->htmlTable();
+
+    self::assertStringContainsString('<td class="dt-cell dt-email"></td>', $html);
+    self::assertStringContainsString('<th class="dt-header">EmptyEmail2</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

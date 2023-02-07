@@ -16,11 +16,25 @@ class DateTableRowTest extends TestCase
   public function testEmptyDate1()
   {
     $table = new DetailTable();
-    DateTableRow::addRow($table, 'EmptyDate1', '');
+    DateTableRow::addRow($table, 'EmptyDate1', null);
     $html = $table->htmlTable();
 
     self::assertStringContainsString('<td class="dt-cell dt-date"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyDate1</th>', $html);
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test with an empty date.
+   */
+  public function testEmptyDate2()
+  {
+    $table = new DetailTable();
+    DateTableRow::addRow($table, 'EmptyDate2', '');
+    $html = $table->htmlTable();
+
+    self::assertStringContainsString('<td class="dt-cell dt-date"></td>', $html);
+    self::assertStringContainsString('<th class="dt-header">EmptyDate2</th>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -53,7 +67,7 @@ class DateTableRowTest extends TestCase
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * Test with an custom open date.
+   * Test with a custom open date.
    */
   public function testOpenEndDate2()
   {

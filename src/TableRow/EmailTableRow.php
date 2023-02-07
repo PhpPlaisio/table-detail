@@ -21,7 +21,11 @@ class EmailTableRow
    */
   public static function addRow(DetailTable $table, int|string|null $header, ?string $value): void
   {
-    if ($value!==null && $value!=='')
+    if ($value===null || $value==='')
+    {
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'email'])]);
+    }
+    else
     {
       $table->addRow($header,
                      ['class' => $table->renderWalker->getClasses(['cell', 'email'])],
@@ -30,10 +34,6 @@ class EmailTableRow
                                                   'href'  => 'mailto:'.$value],
                                        'text' => $value]),
                      true);
-    }
-    else
-    {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'email'])]);
     }
   }
 
