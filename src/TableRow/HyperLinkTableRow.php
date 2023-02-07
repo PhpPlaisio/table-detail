@@ -23,12 +23,12 @@ class HyperLinkTableRow
   {
     if ($value===null || $value==='')
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'link'])]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'cell-link'])]);
     }
     else
     {
       $table->addRow($header,
-                     ['class' => $table->renderWalker->getClasses(['cell', 'link'])],
+                     ['class' => $table->renderWalker->getClasses(['cell', 'cell-link'])],
                      Html::htmlNested(['tag'  => 'a',
                                        'attr' => ['class' => 'link',
                                                   'href'  => $value],

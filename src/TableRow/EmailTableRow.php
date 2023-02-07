@@ -23,12 +23,12 @@ class EmailTableRow
   {
     if ($value===null || $value==='')
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'email'])]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'cell-email'])]);
     }
     else
     {
       $table->addRow($header,
-                     ['class' => $table->renderWalker->getClasses(['cell', 'email'])],
+                     ['class' => $table->renderWalker->getClasses(['cell', 'cell-email'])],
                      Html::htmlNested(['tag'  => 'a',
                                        'attr' => ['class' => ['link', 'link-mailto'],
                                                   'href'  => 'mailto:'.$value],

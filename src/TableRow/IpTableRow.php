@@ -76,7 +76,7 @@ class IpTableRow
     }
 
     $table->addRow($header,
-                   ['class'      => $table->renderWalker->getClasses(['cell', 'ip']),
+                   ['class'      => $table->renderWalker->getClasses(['cell', 'cell-ip']),
                     'data-value' => $data],
                    $text);
   }

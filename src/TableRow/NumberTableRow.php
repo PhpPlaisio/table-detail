@@ -24,18 +24,18 @@ class NumberTableRow
   {
     if ($value===null || $value==='')
     {
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'number'])]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'cell-number'])]);
     }
     elseif (Cast::isManFloat($value))
     {
       $table->addRow($header,
-                     ['class' => $table->renderWalker->getClasses(['cell', 'number'])],
+                     ['class' => $table->renderWalker->getClasses(['cell', 'cell-number'])],
                      sprintf($format, Cast::toManFloat($value)));
     }
     else
     {
       $table->addRow($header,
-                     ['class' => $table->renderWalker->getClasses(['cell', 'number'])],
+                     ['class' => $table->renderWalker->getClasses(['cell', 'cell-number'])],
                      Cast::toOptString($value));
     }
   }

@@ -36,7 +36,7 @@ class DateTimeTableRow
     if ($value===null || $value==='')
     {
       // Value is null.
-      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'datetime'])]);
+      $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'cell-datetime'])]);
     }
     else
     {
@@ -46,14 +46,14 @@ class DateTimeTableRow
       {
         // The $value is a valid datetime.
         $table->addRow($header,
-                       ['class'      => $table->renderWalker->getClasses(['cell', 'datetime']),
+                       ['class'      => $table->renderWalker->getClasses(['cell', 'cell-datetime']),
                         'data-value' => $date->format('Y-m-d H:i:s')],
                        $date->format($format ?? self::$defaultFormat));
       }
       else
       {
         // The $value is not a valid datetime.
-        $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'datetime'])], $value);
+        $table->addRow($header, ['class' => $table->renderWalker->getClasses(['cell', 'cell-datetime'])], $value);
       }
     }
   }

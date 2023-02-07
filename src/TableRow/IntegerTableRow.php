@@ -22,7 +22,7 @@ class IntegerTableRow
   public static function addRow(DetailTable $table, int|string|null $header, ?int $value): void
   {
     $table->addRow($header,
-                   ['class' => $table->renderWalker->getClasses(['cell', 'integer'])],
+                   ['class' => $table->renderWalker->getClasses(['cell', 'cell-integer'])],
                    Cast::toOptString($value));
   }
 

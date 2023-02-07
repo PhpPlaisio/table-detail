@@ -24,7 +24,7 @@ class DetailTableTest extends TestCase
 
     $html = $table->htmlTable();
 
-    self::assertSame('<table class="dt-table"><tbody class="dt-body"><tr class="dt-row"><th class="dt-header">Header1</th><td class="dt-cell dt-text">cell1</td></tr></tbody></table>', $html);
+    self::assertSame('<table class="dt-table"><tbody class="dt-body"><tr class="dt-row"><th class="dt-header">Header1</th><td class="dt-cell dt-cell-text">cell1</td></tr></tbody></table>', $html);
   }
 
   //--------------------------------------------------------------------------------------------------------------------

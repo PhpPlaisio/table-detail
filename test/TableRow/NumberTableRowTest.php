@@ -22,7 +22,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'EmptyNumber1', null, '%f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number"></td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyNumber1</th>', $html);
   }
 
@@ -36,7 +36,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'EmptyNumber2', '', '%f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number"></td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyNumber2</th>', $html);
   }
 
@@ -50,7 +50,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'Not A Number', "&<'\"%s\"'>&", '%f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number">&amp;&lt;&#039;&quot;%s&quot;&#039;&gt;&amp;</td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number">&amp;&lt;&#039;&quot;%s&quot;&#039;&gt;&amp;</td>', $html);
     self::assertStringContainsString('<th class="dt-header">Not A Number</th>', $html);
   }
 
@@ -64,7 +64,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'InvalidValue1', 'qwerty', '%f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number">qwerty</td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number">qwerty</td>', $html);
     self::assertStringContainsString('<th class="dt-header">InvalidValue1</th>', $html);
   }
 
@@ -78,7 +78,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'ValidValue1', 123, '%d');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number">123</td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number">123</td>', $html);
     self::assertStringContainsString('<th class="dt-header">ValidValue1</th>', $html);
   }
 
@@ -92,7 +92,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'ValidValue1', M_PI, '%.2f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number">3.14</td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number">3.14</td>', $html);
     self::assertStringContainsString('<th class="dt-header">ValidValue1</th>', $html);
   }
 
@@ -106,7 +106,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'ValidValue1', 1.005, '%.2f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number">1.00</td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number">1.00</td>', $html);
     self::assertStringContainsString('<th class="dt-header">ValidValue1</th>', $html);
   }
 
@@ -120,7 +120,7 @@ class NumberTableRowTest extends TestCase
     NumberTableRow::addRow($table, 'ValidValue1', '3.1415926535898', '%.2f');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-number">3.14</td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-number">3.14</td>', $html);
     self::assertStringContainsString('<th class="dt-header">ValidValue1</th>', $html);
   }
 

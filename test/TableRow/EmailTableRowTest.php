@@ -19,7 +19,7 @@ class EmailTableRowTest extends TestCase
     EmailTableRow::addRow($table, 'EmptyEmail1', null);
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-email"></td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-email"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyEmail1</th>', $html);
   }
 
@@ -33,7 +33,7 @@ class EmailTableRowTest extends TestCase
     EmailTableRow::addRow($table, 'EmptyEmail2', '');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-email"></td>', $html);
+    self::assertStringContainsString('<td class="dt-cell dt-cell-email"></td>', $html);
     self::assertStringContainsString('<th class="dt-header">EmptyEmail2</th>', $html);
   }
 
@@ -47,7 +47,7 @@ class EmailTableRowTest extends TestCase
     EmailTableRow::addRow($table, 'ValidEmail1', 'info@setbased.nl');
     $html = $table->htmlTable();
 
-    self::assertStringContainsString('<td class="dt-cell dt-email">'.
+    self::assertStringContainsString('<td class="dt-cell dt-cell-email">'.
                                      '<a class="link link-mailto" href="mailto:info@setbased.nl">info@setbased.nl</a>'.
                                      '</td>', $html);
     self::assertStringContainsString('<th class="dt-header">ValidEmail1</th>', $html);
